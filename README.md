@@ -1,8 +1,34 @@
+# FIAP - Faculdade de Informática e Administração Paulista
+
+<p align="center">
+<a href= "https://www.fiap.com.br/"><img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=40% height=40%></a>
+</p>
+
+<br>
+
 # Sistema de Registro de Carga de Soja
 
-## Descrição
+## Grupo
+
+## 👨‍🎓 Integrantes: 
+- **Antônio Ancelmo** | **E-mail:** antonio.anbarros@gmail.com | **GitHub:** @AntonioBarros19 | **RM:** rm562099
+- **Beatriz Pilecarte** | **E-mail:** beatrizpilecartedemelo@gmail.com | **GitHub:** @BPilecarte | **RM:** 564952
+- **Claudio Santos** | **E-mail:** claudiossilva93@gmail.com | **GitHub:** @claudiossilva93s | **RM:** 562915
+- **Francismar Alves** | **E-mail:** yggdrasil.git@gmail.com | **GitHub:** @yggdrasilGit | **RM:** rm564952
+- **Vitor Eiji** | **E-mail:** vitorfer2018@gmail.com | **GitHub:** @Vitor985-hub | **RM:** 562915
+
+
+## 👩‍🏫 Professores:
+### Tutor(a) 
+- Leonardo Ruiz Orabona
+### Coordenador(a)
+- André Godoi Chiovato
+
+
+## 📜 Descrição
 
 Este sistema automatiza o processo de registro de carga de soja transportada por caminhões. Ele captura imagens de placas de caminhões, realiza a leitura da placa, converte essa leitura em texto e utiliza um simulador para calcular o peso da carga de soja. As informações geradas são então registradas em um banco de dados Oracle e também são salvas em um arquivo `.txt` para registro e controle.
+
 
 ### Funcionalidades Principais:
 
@@ -30,7 +56,80 @@ Este sistema automatiza o processo de registro de carga de soja transportada por
 
 4. **Geração do Arquivo TXT**:
    - Após o processo de leitura e simulação, o sistema gera um arquivo `.txt` contendo as informações registradas, como a placa do caminhão, tipo de carga (soja) e peso da carga.
+
+
+## 📁 Estrutura de pastas
+
+Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+SGAG-CARGO-REGISTRATION-SYSTEM/
+│
+├── 📂 api_read_plate/              # Módulo de leitura de placa via OCR
+│   ├── 📂 images/                  # Imagens e arquivos de placas detectadas
+│   │   ├── __init__.py
+│   │   ├── placa_detectada.txt
+│   │   └── tratamento_txt.py
+│   ├── plate_read.py              # Lógica de leitura OCR da placa
+│   └── __init__.py
+│
+├── 📂 display/                     # Interface do menu
+│   ├── menu.py
+│   └── __init__.py
+│
+├── 📂 manager/                     # Gerenciamento de entidades
+│   ├── caminhao.py                 # Cadastro e controle de caminhões
+│   ├── entrada_de_grao.py          # Registro de entrada de grãos
+│   └── __pycache__/
+│
+├── 📂 oracle_db/                  # Acesso ao banco de dados Oracle
+│   ├── conection.py               # Conexão com Oracle
+│   ├── criar_tabela.py            # Criação de tabelas
+│   ├── crud.py                    # Operações CRUD
+│   └── __init__.py
+│
+├── 📂 simulador_carga/            # Simulação de peso da carga
+│   ├── simulador_carga.py
+│   └── __init__.py
+│
+├── 📂 sql_table/                  # Scripts SQL para criação de tabelas
+│   └── tabela_cadastra_motorista.sql
+│
+├── .gitattributes                 # Configuração de atributos Git
+├── carga_soja.json                # Dados simulados de carga
+├── dados_caminhao.json            # Dados simulados de caminhões
+├── main.py                        # Script principal do sistema
+├── README.md                      # Documentação do projeto
+└── requirmentsta.txt              # Dependências do projeto
+
+
+## 🔧 Como executar o código
+
+### Instalação das Dependências
+
+Para instalar as dependências necessárias, siga os passos abaixo:
+
+1. **Crie um ambiente virtual** (opcional, mas recomendado):
    
+   ```bash
+   python3 -m venv env
+   ```
+
+2. **Ative o ambiente virtual**:
+   - No Windows:
+     ```bash
+     .\env\Scripts\activate
+     ```
+   - No Linux/macOS:
+     ```bash
+     source env/bin/activate
+     ```
+
+3. **Instale as dependências**:
+   Execute o seguinte comando para instalar todas as bibliotecas necessárias:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 ## Dependências
 
 O sistema depende de várias bibliotecas para funcionar corretamente. Abaixo está a lista de dependências necessárias:
@@ -71,33 +170,6 @@ torchvision==0.17.2
 typing_extensions==4.13.2
 ```
 
-### Instalação das Dependências
-
-Para instalar as dependências necessárias, siga os passos abaixo:
-
-1. **Crie um ambiente virtual** (opcional, mas recomendado):
-   
-   ```bash
-   python3 -m venv env
-   ```
-
-2. **Ative o ambiente virtual**:
-   - No Windows:
-     ```bash
-     .\env\Scripts\activate
-     ```
-   - No Linux/macOS:
-     ```bash
-     source env/bin/activate
-     ```
-
-3. **Instale as dependências**:
-   Execute o seguinte comando para instalar todas as bibliotecas necessárias:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ## Estrutura do Banco de Dados
 
 O banco de dados utilizado é o Oracle, e a estrutura do banco é a seguinte:
@@ -117,6 +189,7 @@ O banco de dados utilizado é o Oracle, e a estrutura do banco é a seguinte:
   - `tipo_cultura`: Tipo da cultura (no caso, "soja")
   - `peso_toneladas`: Peso da carga em toneladas
   - `placa`: Chave estrangeira que faz referência à tabela `CAMINHAO` (placa)
+
 
 ## Exemplos de Uso
 
@@ -147,21 +220,9 @@ Após o registro da carga, o sistema cria um arquivo `.txt` com as informações
 salvar_em_json({'placa': placa, **carga}, 'carga_soja.txt')
 ```
 
-## Contribuições
 
-Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou quiser corrigir bugs, fique à vontade para abrir uma *issue* ou submeter um *pull request*.
 
-## Licença
+## 📋 Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
-```
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/agodoi/template">MODELO GIT FIAP</a> por <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://fiap.com.br">Fiap</a> está licenciado sobre <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
 
-### Explicação das Melhorias:
-
-- **Detalhamento do Processo**: Agora o processo de leitura da placa e simulação da carga de soja está explicado claramente, com ênfase em como a carga é gerada aleatoriamente e registrada no banco de dados.
-  
-- **Banco de Dados**: A estrutura do banco de dados foi detalhada para que o usuário saiba como as informações de caminhões e cargas são organizadas nas tabelas.
-
-- **Exemplos de Uso**: Foram adicionados exemplos de como registrar uma carga e gerar o arquivo `.txt` com as informações da carga, proporcionando mais clareza sobre o uso do sistema.
-
-- **Inclusão das Dependências**: As bibliotecas necessárias para rodar o sistema foram mantidas e estão detalhadas na seção de dependências, para garantir que o sistema funcione corretamente no ambiente do usuário.
