@@ -1,9 +1,5 @@
 # FIAP - Faculdade de Informática e Administração Paulista
 
-<p align="center">
-<a href= "https://www.fiap.com.br/"><img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=40% height=40%></a>
-</p>
-
 <br>
 
 # Sistema de Registro de Carga de Soja
@@ -11,10 +7,10 @@
 ## Grupo
 
 ## 👨‍🎓 Integrantes: 
-- **Antônio Ancelmo** | **E-mail:** antonio.anbarros@gmail.com | **GitHub:** @AntonioBarros19 | **RM:** rm562099
+- **Antônio Ancelmo** | **E-mail:** antonio.anbarros@gmail.com | **GitHub:** @AntonioBarros19 | **RM:** 562099
 - **Beatriz Pilecarte** | **E-mail:** beatrizpilecartedemelo@gmail.com | **GitHub:** @BPilecarte | **RM:** 564952
 - **Claudio Santos** | **E-mail:** claudiossilva93@gmail.com | **GitHub:** @claudiossilva93s | **RM:** 562915
-- **Francismar Alves** | **E-mail:** yggdrasil.git@gmail.com | **GitHub:** @yggdrasilGit | **RM:** rm564952
+- **Francismar Alves** | **E-mail:** yggdrasil.git@gmail.com | **GitHub:** @yggdrasilGit | **RM:** 564952
 - **Vitor Eiji** | **E-mail:** vitorfer2018@gmail.com | **GitHub:** @Vitor985-hub | **RM:** 562915
 
 
@@ -61,6 +57,7 @@ Este sistema automatiza o processo de registro de carga de soja transportada por
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+```bash
 SGAG-CARGO-REGISTRATION-SYSTEM/
 │
 ├── 📂 api_read_plate/              # Módulo de leitura de placa via OCR
@@ -99,7 +96,7 @@ SGAG-CARGO-REGISTRATION-SYSTEM/
 ├── main.py                        # Script principal do sistema
 ├── README.md                      # Documentação do projeto
 └── requirmentsta.txt              # Dependências do projeto
-
+ ```
 
 ## 🔧 Como executar o código
 
